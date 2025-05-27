@@ -1,1 +1,13 @@
 @plugin "daisyui";
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+.rancho{
+   font-family: "Rancho", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.bg-imge{
+  background-image: url('./../images/more/15.jpg');
+  width: 100%;
+  background-repeat: no-repeat;
+}
