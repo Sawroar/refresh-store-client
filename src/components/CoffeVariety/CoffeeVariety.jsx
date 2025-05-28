@@ -13,8 +13,8 @@ const CoffeeVariety = () => {
             <div className='text-center '>
                 <p className='text-[#1B1A1A] text-xl'>Follow Us Now</p>
                 <h1 className='text-6xl font-medium'>Follow on Instagram</h1>
-            </div>
-            <div className='flex flex-wrap gap-8 text-center items-center justify-items-center mt-12'>
+            </div> 
+            <div className='flex flex-wrap lg:ml-25 gap-8  items-center justify-center mt-12'>
                 <img src={coffeimage1} alt="" />
                 <img src={coffeimage2} alt="" />
                 <img src={coffeimage3} alt="" />
@@ -24,6 +24,7 @@ const CoffeeVariety = () => {
                 <img src={coffeimage7} alt="" />
                 <img src={coffeimage8} alt="" />
             </div>
+              
         </div>
     );
 };
