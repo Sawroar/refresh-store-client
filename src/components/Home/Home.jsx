@@ -20,10 +20,10 @@ const Home = () => {
                 {/* Banner Section start */}
                 <div className='relative'>
                     <img src={banner} className=' h-full md:h-[800px]  w-full ' alt="" />
-                    <div className='translate-x-3/12 absolute lg:-translate-y-85 -translate-y-12/12 pr-6'>
-                        <h1 className=' text-sm font-bold lg:text-xl  text-white sm:pr-6'>Would you like a Cup of Delicious Coffee?</h1>
-                        <p className='text-white  text-xs lg:mt-4 mr-2'>It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of  <br /> every moment!!! Enjoy the beautiful moments and make them memorable.</p>
-                        <button class="btn btn-warning lg:mt-8 mb-3 pt-2">Learn More</button>
+                    <div className='translate-x-3/12 lg:translate-x-6/12 absolute lg:-translate-y-85 -translate-y-12/12 pr-6'>
+                        <h1 className=' text-sm font-bold lg:text-5xl  text-white sm:pr-6'>Would you like a Cup of Delicious Coffee?</h1>
+                        <p className='text-white  text-xs  lg:text-xl lg:mt-4 mr-2'>It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of  <br /> every moment!!! Enjoy the beautiful moments and make them memorable.</p>
+                        <button class="btn btn-warning lg:btn-sm lg:mt-8 mb-3 pt-2">Learn More</button>
                     </div>
                 </div>
                 {/* Quality Coffe Section  */}

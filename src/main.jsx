@@ -11,6 +11,9 @@ import MainLayout from './components/MainLayout/MainLayout.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import OderCoffee from './components/OderCoffee/OderCoffee.jsx';
 import AddNewCoffee from './components/AddNewCoffee/AddNewCoffee.jsx';
+import SignUp from './components/Signup/SignUp.jsx';
+import UpdateCoffee from './UpdateCoffee/UpdateCoffee.jsx';
+import CoffeeDetails from './UpdateCoffee/CoffeeDetails/CoffeeDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +25,29 @@ const router = createBrowserRouter([
       element: <Home></Home>,
         },
         {
-             path:'/oderCoffee',
+             path:'oderCoffee',
       element: <OderCoffee></OderCoffee>,
+      loader:()=>fetch('http://localhost:5000/coffee')
             },{
-            path: '/addNewCoffee',
+            path: 'addNewCoffee',
       element: <AddNewCoffee></AddNewCoffee>,
+        },
+        {
+          path:'oderCoffee/updateCoffee/:id',
+          element:<UpdateCoffee></UpdateCoffee>,
+          loader:(params)=>fetch(`http://localhost:5000/coffee/${params.id}`)
+        },
+        {
+          path:'oderCoffee/coffeeDetails/:id',
+          element:<CoffeeDetails></CoffeeDetails>,
+          loader:(params)=>fetch(`http://localhost:5000/coffee/${params.id}`)
+        },
+        
+        {
+          path:'signUp',
+          element: <SignUp></SignUp>
         }
+
   ]
   }
 

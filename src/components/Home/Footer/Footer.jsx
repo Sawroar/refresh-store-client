@@ -10,7 +10,7 @@ import { IoLocation } from "react-icons/io5";
 import footerImage from "../../../../images/more/13.jpg"
 const Footer = () => {
     return (
-        <div className='md:flex mt-18 p-10 gap-60 items-center justify-around]' style={{backgroundImage: `url(${footerImage})`}}>
+        <div className='md:flex mt-18 p-10 lg:pl-35 gap-60 items-center justify-center' style={{backgroundImage: `url(${footerImage})`}}>
             <div className='lg:w-6/12'>
                 <img className='h-[90px] w-[70pxs] text-center' src={logo} alt="" />
                 <h1 className='text-[#331A15] text-4xl font-bold'>Espresso Emporium</h1>
