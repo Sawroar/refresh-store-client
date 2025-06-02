@@ -16,9 +16,9 @@ const AddNewCoffee = () => {
         const price =form.price.value;
         const supplier =form.supplier.value;
 const newCoffee ={name,photo,chef,taste,category,price,supplier}
-console.log(newCoffee)
+
 // send data to the server 
-fetch('http://localhost:5000/coffee',{
+fetch('https://refresh-store-server.vercel.app/coffee',{
     method: 'POST',
     headers :{'content-type':'application/json'
 
@@ -27,8 +27,7 @@ fetch('http://localhost:5000/coffee',{
 })
 .then(res=>res.json())
 .then(data=>{
-    console.log(data)
-    if(data.insertedId){
+      if(data.insertedId){
        Swal.fire({
   position: "top-end",
   icon: "success",

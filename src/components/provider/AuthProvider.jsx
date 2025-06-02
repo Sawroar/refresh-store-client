@@ -31,8 +31,7 @@ setLoading(true)
 }
     useEffect(()=>{
  const unSubcribe= onAuthStateChanged(auth,currentUser=>{
-           console.log('Current user',currentUser) 
-    setUser(currentUser);
+               setUser(currentUser);
     setLoading(false)
            
     })

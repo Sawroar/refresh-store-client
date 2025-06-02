@@ -10,14 +10,12 @@ const Coffees = ({ coffee, }) => {
 
 
     const handleDelete=(_id)=>{
-console.log(_id)
-fetch(`http://localhost:5000/coffee/${_id}`,{
+fetch(`https://refresh-store-server.vercel.app/coffee/${_id}`,{
     method :'DELETE',
            
 })
 .then(res=>res.json())
 .then(data=>{
-    console.log(data)
     if(data.deletedCount >0){
        Swal.fire({
   title: "Are you sure?",

@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firesbase.init";
-
+import { FcGoogle } from "react-icons/fc";
 const SignIn = () => {
 const navigate= useNavigate();
   const {signInUser,errorMessage,setErrorMassage,signInWithGoogle,showPassword,setShowPassword,setSuccess,success}=useContext(AuthContext)
@@ -14,7 +14,6 @@ const navigate= useNavigate();
     const form =e.target;
     const email=form.email.value;
     const password=form.password.value;
-console.log(email,password)
   signInUser(email,password)
   .then(result=>{
     console.log(result.user)
@@ -42,7 +41,6 @@ signInWithGoogle()
 })
  }
  const handleForgetPassword=()=>{
-  console.log('get me email.password', emailRef.current.value)
   const email=emailRef.current.value;
   if(!email){
 setErrorMassage('Please Provide a Valid Email Address')
@@ -80,7 +78,7 @@ Swal.fire({
           <div><a className="link link-hover" onClick={handleForgetPassword}>Forgot password?</a></div>
           <button className="btn  text-center text-2xl border-[#331A15] border-1 bg-[#D2B48C] text-[#331A15]">Login</button>
         <p>New to This Website Please! <Link to={'/SignUp'}  className='text-blue-700 underline'> Sign Up</Link> </p>
-<p className="btn btn-ghost" onClick={handleInGoogleSign}>Google</p>
+<p className="btn btn-ghost  bg-White border-[#331A15] border-1" onClick={handleInGoogleSign}> <FcGoogle className="text-2xl" />Sign In With Google </p>
        <p className=' text-red-700'>{errorMessage&& <>{errorMessage}</> }</p>
         {
                success && Swal.fire({

@@ -20,7 +20,6 @@ const name =form.name.value;
 const password =form.password.value;
 const terms =form.terms.checked;
 const singUp= {email,password,name,terms}
-console.log(singUp)
 
 setErrorMassage('')
 setSuccess(false)

@@ -23,39 +23,39 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
-   children: [{
+    children: [{
       path: '/',
       element: <Home></Home>,
-        },
-        {
-             path:'oderCoffee',
+    },
+    {
+      path: 'oderCoffee',
       element: <PrivateRoute><OderCoffee></OderCoffee></PrivateRoute>,
-      loader:()=>fetch('http://localhost:5000/coffee')
-            },{
-            path: 'addNewCoffee',
+      loader: () => fetch('https://refresh-store-server.vercel.app/coffee')
+    }, {
+      path: 'addNewCoffee',
       element: <AddNewCoffee></AddNewCoffee>,
-        },
-        {
-          path:'oderCoffee/updateCoffee/:id',
-          element:<UpdateCoffee></UpdateCoffee>,
-          loader:(params)=>fetch(`http://localhost:5000/coffee/${params.id}`)
-        },
-        {
-          path:'oderCoffee/coffeeDetails/:id',
-          element:<CoffeeDetails></CoffeeDetails>,
-          loader:(params)=>fetch(`http://localhost:5000/coffee/${params.id}`)
-        },
-        ,
-        {
-          path:'signIn',
-          element: <SignIn></SignIn>
-        },
-        {
-          path:'signUp',
-          element: <SignUp></SignUp>
-        }
+    },
+    {
+      path: 'oderCoffee/updateCoffee/:id',
+      element: <UpdateCoffee></UpdateCoffee>,
+      loader: (params) => fetch(`https://refresh-store-server.vercel.app/coffee/${params.id}`)
+    },
+    {
+      path: 'oderCoffee/coffeeDetails/:id',
+      element: <CoffeeDetails></CoffeeDetails>,
+      loader: (params) => fetch(`https://refresh-store-server.vercel.app/coffee/${params.id}`)
+    },
+      ,
+    {
+      path: 'signIn',
+      element: <SignIn></SignIn>
+    },
+    {
+      path: 'signUp',
+      element: <SignUp></SignUp>
+    }
 
-  ]
+    ]
   }
 
 
@@ -64,8 +64,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <AuthProvider>
+    <AuthProvider>
       <RouterProvider router={router} />
-  </AuthProvider>
+    </AuthProvider>
   </StrictMode>,
 )

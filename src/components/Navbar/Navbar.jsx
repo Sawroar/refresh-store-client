@@ -3,6 +3,7 @@ import logo from '../../../images/more/logo1.png'
 import banground from '../../../images/more/15.jpg'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 const Navbar = () => {
 
     const {user,signOutUser} =useContext(AuthContext)
@@ -11,7 +12,13 @@ const Navbar = () => {
     const handleSignOut=()=>{
         signOutUser()
         .then(()=>{
-            console.log('user sign out successfully')
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sign out Succesfully",
+          showConfirmButton: false,
+          timer: 1500
+        })
         })
         .catch(error=>{
             console.log('error',error.message)
@@ -53,7 +60,7 @@ const Navbar = () => {
 
 { user? 
 <> 
-<span className='text-white mr-3'>  <h1>Hi ! {user?.displayName && user?.photoURL}</h1></span>
+<span className='text-white mr-3'>  <h1>Hi ! {user?.displayName}</h1></span>
 <a onClick={handleSignOut} className='btn mr-3 sm:btn-sm'>Sign Out</a>
 </> 
     : <Link className='text-white mr-3' to={'/signIn'}>Sign In</Link>}
