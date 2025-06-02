@@ -14,6 +14,9 @@ import AddNewCoffee from './components/AddNewCoffee/AddNewCoffee.jsx';
 import SignUp from './components/Signup/SignUp.jsx';
 import UpdateCoffee from './UpdateCoffee/UpdateCoffee.jsx';
 import CoffeeDetails from './UpdateCoffee/CoffeeDetails/CoffeeDetails.jsx';
+import AuthProvider, { AuthContext } from './components/provider/AuthProvider.jsx';
+import SignIn from './components/SignIn/SignIn.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
         },
         {
              path:'oderCoffee',
-      element: <OderCoffee></OderCoffee>,
+      element: <PrivateRoute><OderCoffee></OderCoffee></PrivateRoute>,
       loader:()=>fetch('http://localhost:5000/coffee')
             },{
             path: 'addNewCoffee',
@@ -42,7 +45,11 @@ const router = createBrowserRouter([
           element:<CoffeeDetails></CoffeeDetails>,
           loader:(params)=>fetch(`http://localhost:5000/coffee/${params.id}`)
         },
-        
+        ,
+        {
+          path:'signIn',
+          element: <SignIn></SignIn>
+        },
         {
           path:'signUp',
           element: <SignUp></SignUp>
@@ -57,6 +64,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+  <AuthProvider>
+      <RouterProvider router={router} />
+  </AuthProvider>
   </StrictMode>,
 )

@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../images/more/logo1.png'
 import banground from '../../../images/more/15.jpg'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 const Navbar = () => {
+
+    const {user,signOutUser} =useContext(AuthContext)
+
+
+    const handleSignOut=()=>{
+        signOutUser()
+        .then(()=>{
+            console.log('user sign out successfully')
+        })
+        .catch(error=>{
+            console.log('error',error.message)
+        })
+    }
     const links = <>
         <li><NavLink to={'/'}className='text-white'>Home</NavLink></li>
-        <li><NavLink to={'/oderCoffee'} className='text-white'>Oder Coffee</NavLink></li>
-        <li><NavLink to={'/addNewCoffee'} className='text-white'>Add New Coffee</NavLink></li>
+      {
+        user && <>   <li><NavLink to={'/oderCoffee'} className='text-white'>Oder Coffee</NavLink></li>
+        <li><NavLink to={'/addNewCoffee'} className='text-white'>Add New Coffee</NavLink></li></>
+      }
         <li><NavLink to={'/signUp'} className='text-white'>Sign Up</NavLink></li>
+        <li><NavLink to={'/signIn'} className='text-white'>Sign In</NavLink></li>
     </>
     return (
         <div>
@@ -34,6 +51,12 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div className=' flex items-center justify-center'>
 
+{ user? 
+<> 
+<span className='text-white mr-3'>  <h1>Hi ! {user?.displayName && user?.photoURL}</h1></span>
+<a onClick={handleSignOut} className='btn mr-3 sm:btn-sm'>Sign Out</a>
+</> 
+    : <Link className='text-white mr-3' to={'/signIn'}>Sign In</Link>}
                         <h1 className='md:text-2xl font-semibold mr-2 text-white'>Espresso Emporium</h1>
                     </div>
                 </div>
